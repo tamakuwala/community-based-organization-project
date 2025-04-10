@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Posting</title>
+</head>
+<body>
+
+      <script type = "text/javascript">
+          function checkcode(){
+            var params = document.getElementById("pass").value;
+            if(params == "12345"){
+              window.location.assign("staff.html");
+            }
+            else{
+              alert("Incorrect Password")
+            }
+          };
+
+          function registercustomer()
+          {
+            window.location.assign("registercustomer.html");
+          };
+
+          function updatecustomer()
+          {
+            window.location.assign("updatecustomer.html");
+          };
+
+          function deletecustomer()
+          {
+            window.location.assign("deletecustomer.html");
+          };
+
+          function viewcustomer()
+          {
+            var http = new XMLHttpRequest();
+            var url = '/viewcustomer';
+                 
+            http.open('GET', url, true);
+          
+            http.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+          
+            http.onreadystatechange = function() 
+              { 
+                if(http.readyState == 4 && http.status == 200) 
+                {
+                       
+                    var response = JSON.parse(http.responseText);
+                    document.getElementById("answer2").value = response.answer;
+                }
+          };
+            http.send();
+          };
+        
+          </script>
+          
+          <h1>Welcome to CBO</h1>
+            <p><b>STAFF</b></p>
+            <p> For using functionalities for staff members, please enter your manager code.</p>
+              <label for="password"> MANAGER CODE</label><br>
+              <input id="pass" type="password" placeholder="Add manager code"><br><br>
+            <button  onclick= "checkcode()" class= "button"> SUBMIT </button><br><br>
+    
+            <p><b>CUSTOMERS</b></p>
+            <button   onclick= "registercustomer()" class= "button" > Register new customer </button><br><br>
+            <button   onclick= "updatecustomer()" class= "button" > Update customer </button><br><br>
+            <button   onclick= "deletecustomer()" class= "button" > Delete customer </button><br><br>
+            <button   onclick= "viewcustomer()" class= "button" > List of customers </button><br><br>
+            <textarea class= "button" id = "answer2"> </textarea><br><br>
+</body>
+</html>

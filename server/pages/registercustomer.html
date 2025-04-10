@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Posting</title>
+</head>
+<body>
+    <p>This page will be automatically updated every 20 seconds.</p>
+    <h2>To register new customer. Please enter all the information.</h2>
+      <script type = "text/javascript">
+
+        function registercustomer(){
+            var http = new XMLHttpRequest();
+              var url = '/registercustomer';
+              var params = 'firstname=' + document.getElementById("input1").value +'&lastname=' + document.getElementById("input2").value 
+              +'&address=' + document.getElementById("input3").value;
+                 
+              http.open('POST', url, true);
+          
+              http.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+          
+              http.onreadystatechange = function() 
+              { 
+                  if(http.readyState == 4 && http.status == 200) 
+                  {
+                       
+                      var response = JSON.parse(http.responseText);
+          
+                      alert(response.answer);
+                  
+                  }
+              };
+              http.send(params);
+              window.location.assign("index.html");
+        }
+          </script>
+          
+            <label for="firstname"> First name:</label>
+            <input id="input1" type="text" firstname="firstname" placeholder="Add first name"><br> <br>
+            <label for="lastname"> Last name:</label>
+            <input id="input2" type="text" lastname="lastname" placeholder="Add last name"><br> <br>   
+            <label for="address"> Address:</label>
+            <input id="input3" type="text" address="address" placeholder="Add address"><br> <br>  
+            <button  onclick= "registercustomer()"  > Register </button><br><br> 
+             
+</body>
+</html>

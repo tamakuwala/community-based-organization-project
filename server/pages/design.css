@@ -1,0 +1,104 @@
+.heading{
+    position:absolute;
+    top:0%
+}
+
+.main{
+    background-color: #222d32;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: calc(10px + 2vmin);
+    color: white;
+}
+.login-box {
+  margin-top: 75px;
+  height: auto;
+  background: #222d32;
+  text-align: center;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+}
+.btn-outline-primary {
+  opacity: 1;
+  background-color: #222d32;
+  border-color: #0db8de;
+  color: #0db8de;
+  border-radius: 20px;
+  font-weight: bold;
+  font-size: 17px;
+  letter-spacing: 1px;
+  padding: 7px 20px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+}
+
+.btn-outline-primary:hover {
+  background-color: #dbe1e7;
+  right: 0px;
+}
+input[type="text"] {
+  background-color: #222d32;
+  border: none;
+  border-bottom: 2px solid #0db8de;
+  border-top: 0px;
+  border-radius: 0px;
+  font-weight: bold;
+  outline: 0;
+  margin-bottom: 20px;
+  padding-left: 100px;
+  color: #ecf0f5;
+}
+input[type="password"] {
+  background-color: #222d32;
+  border: none;
+  border-bottom: 2px solid #0db8de;
+  border-top: 0px;
+  border-radius: 0px;
+  font-weight: bold;
+  outline: 0;
+  margin-bottom: 20px;
+  padding-left: 100px;
+  color: #ecf0f5;
+}
+.form-group {
+  margin-bottom: 40px;
+  outline: 0px;
+}
+.form-control-label {
+  font-size: 20px;
+  color: #76737a;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+.form-control:focus {
+  border-color: inherit;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  border-bottom: 2px solid #0db8de;
+  outline: 0;
+  background-color: #1a2226;
+  color: #ecf0f5;
+}
+input:focus {
+  outline: none;
+  box-shadow: 0 0 0;
+}
+.header-customer{
+    position: absolute;
+    top: calc(35% - 130px);
+    left: calc(50% + 155px);
+    z-index: 2;
+  }
+.header-staff{
+    position: absolute;
+    top: calc(35% - 130px);
+    left: calc(30% - 15px);
+    z-index: 2;
+}
+.thin-red-border {
+    border-color:#0db8de;
+    border-width: 3px;
+    border-style: solid;
+    border-radius: 10%;
+  }

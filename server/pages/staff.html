@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Posting</title>
+</head>
+<body>
+
+      <script type = "text/javascript">
+          function registerstaff()
+          {
+            window.location.assign("registerstaff.html");
+          };
+          
+          function updatestaff()
+          {
+            window.location.assign("updatestaff.html");
+          };
+
+          function deletestaff()
+          {
+            window.location.assign("deletestaff.html");
+          }
+
+          function viewstaff()
+          {
+            var http = new XMLHttpRequest();
+            var url = '/viewstaff';
+                 
+            http.open('GET', url, true);
+          
+            http.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+          
+            http.onreadystatechange = function() 
+            { 
+                if(http.readyState == 4 && http.status == 200) 
+                {
+                       
+                    var response = JSON.parse(http.responseText);
+                    document.getElementById("answer1").value = response.answer;
+                  
+                }
+            };
+            http.send();
+          };        
+          </script>
+          
+      <div class= "main">
+          <h1 class="heading">Welcome to CBO</h1>
+          <div class="header-staff" >
+            <p><b>STAFF</b></p>
+
+            <button  class="btn-outline-primary" onclick= "registerstaff()" class= "button"> Register new staff </button><br><br>
+            <button  class="btn-outline-primary" onclick= "updatestaff()" class= "button" > Update staff information </button><br><br>
+            <button  class="btn-outline-primary" onclick= "deletestaff()" class= "button" > Delete staff </button><br><br>
+            <button  class="btn-outline-primary" onclick= "viewstaff()" class= "button" > List of staffs </button><br><br>
+            <textarea class= "button" id = "answer1"> </textarea><br><br>
+          </div>
+          
+      </div>
+
+</body>
+</html>

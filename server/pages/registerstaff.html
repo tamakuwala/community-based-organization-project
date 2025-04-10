@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Posting</title>
+</head>
+<body>
+      <script type = "text/javascript">
+
+        function registerstaff(){
+            var http = new XMLHttpRequest();
+              var url = '/registerstaff';
+              var params = 'firstname=' + document.getElementById("input1").value +'&lastname=' + document.getElementById("input2").value 
+              +'&contact=' + document.getElementById("input3").value +'&address=' + document.getElementById("input4").value;
+                 
+              http.open('POST', url, true);
+          
+              http.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+          
+              http.onreadystatechange = function() 
+              { 
+                  if(http.readyState == 4 && http.status == 200) 
+                  {
+                       
+                      var response = JSON.parse(http.responseText);
+          
+                      alert(response.answer);
+                  
+                  }
+              };
+              http.send(params);
+              window.location.assign("index.html");
+        }
+          </script>
+          
+          <h2>To register new staff. Please enter all the information.</h2>
+          <div>
+            <label for="firstname"> First name: </label>
+            <input id="input1" type="text" firstname="firstname" placeholder="Add first name"><br><br>
+            <label for="lastname"> Last name: </label>
+            <input id="input2" type="text" lastname="lastname" placeholder="Add last name"><br><br> 
+            <label for="contact"> Contact: </label>
+            <input id="input3" type="text" contact="contact" placeholder="Add contact"><br><br>
+            <label for="address"> Address: </label>
+            <input id="input4" type="text" address="address" placeholder="Add address"><br><br>
+          </div> 
+            <button onclick= "registerstaff()"  > Register </button><br><br>   
+
+</body>
+</html>
